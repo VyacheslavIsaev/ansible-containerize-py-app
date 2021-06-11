@@ -11,7 +11,7 @@ RUN pip install -r requirements.txt
 
 COPY app /app/
 
-{% for item in app_ports.keys() %}
+{% for item in app_ports %}
 EXPOSE {{item}}
 {% endfor %}
 
