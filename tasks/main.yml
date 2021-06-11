@@ -1,0 +1,21 @@
+---
+# tasks file for containerize-py-app
+- name: Copying application
+  copy:
+    src: ./app
+    dest: "{{app_path}}/"
+
+- name: Copying Dockerfile
+  template:
+    src: Dockerfile.j2
+    dest: "{{app_path}}/Dockerfile"
+
+- name: Copying requirements
+  copy:
+    src: ./requirements.txt
+    dest: "{{app_path}}/"
+
+- name: Building docker
+  command: "docker build -t {{app_image_name}} ."
+  args:
+    chdir: "{{app_path}}"

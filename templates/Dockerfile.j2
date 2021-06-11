@@ -1,0 +1,21 @@
+FROM {{python_image}}
+LABEL maintaner="{{app_maintainer}}"
+
+WORKDIR /app
+
+COPY ./requirements.txt /app/
+
+RUN pip install -r requirements.txt
+
+COPY app /app/
+
+{% if app_port %}
+EXPOSE {{app_port}}/tcp
+{% endif %}
+
+{% if prom_port %}
+EXPOSE {{prom_port}}/tcp
+{% endif %}
+
+ENTRYPOINT [ "python" ]
+CMD [ "{{app_file}}" ]
