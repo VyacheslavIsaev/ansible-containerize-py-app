@@ -4,5 +4,5 @@ app_name: AppName
 app_port: ""
 prom_port: ""
 python_image: python:3.8.0-alpine
-app_maintainer: slava.isaev@gmail.com
+app_maintainer: ""
 app_image_name: "{{app_name}}:latest"
