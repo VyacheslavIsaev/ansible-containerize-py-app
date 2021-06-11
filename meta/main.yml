@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: containerize_py_app
   author: Viacheslav Isaev
   description: Role helps to contanerize a python application directly on a remote host.
 
