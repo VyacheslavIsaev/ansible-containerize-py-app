@@ -38,7 +38,7 @@ Example Playbook
         app_port: ""
         prom_port: ""
         python_image: python:3.8.0-alpine
-        app_maintainer: slava.isaev@gmail.com
+        app_maintainer: xxx.yyy@zzz.com
       roles:
          - role: ViacheslavIsaev.containeraize-py-app
 
