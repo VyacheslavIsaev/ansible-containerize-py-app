@@ -17,12 +17,12 @@ No extra requirements.
 Role Variables
 --------------
 
-app_name  - name of the application
-app_port  - port of the application to expose
-prom_port - prometheus port to expose
-python_image - base python image to host application
-app_maintainer - maintainer of the application
-app_image_name - don't change it unless would like to specify specific image tag.
+* app_name  - name of the application
+* app_port  - port of the application to expose
+* prom_port - prometheus port to expose
+* python_image - base python image to host application
+* app_maintainer - maintainer of the application
+* app_image_name - don't change it unless would like to specify specific image tag.
 
 Dependencies
 ------------
