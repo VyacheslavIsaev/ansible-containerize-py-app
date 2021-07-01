@@ -1,5 +1,7 @@
 FROM {{python_image}}
+{% if app_maintainer|length > 0 %}
 LABEL maintaner="{{app_maintainer}}"
+{% endif %}
 
 WORKDIR /app
 
@@ -9,13 +11,9 @@ RUN pip install -r requirements.txt
 
 COPY app /app/
 
-{% if app_port %}
-EXPOSE {{app_port}}/tcp
-{% endif %}
-
-{% if prom_port %}
-EXPOSE {{prom_port}}/tcp
-{% endif %}
+{% for item in app_ports %}
+EXPOSE {{item}}
+{% endfor %}
 
 ENTRYPOINT [ "python" ]
 CMD [ "{{app_file}}" ]

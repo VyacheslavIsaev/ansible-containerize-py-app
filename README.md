@@ -18,11 +18,12 @@ Role Variables
 --------------
 
 * app_name  - name of the application
-* app_port  - port of the application to expose
-* prom_port - prometheus port to expose
-* python_image - base python image to host application
+* app_root  - root of the application to be installed on remote host
+* app_ports - list of application ports to expose
+* python_image   - base python image to host application
 * app_maintainer - maintainer of the application
 * app_image_name - don't change it unless would like to specify specific image tag.
+* app_file       - python file which contains application and is used as startup file
 
 Dependencies
 ------------
@@ -34,11 +35,13 @@ Example Playbook
 
     - hosts: servers
       vars:
-        app_name: AppName
-        app_port: ""
-        prom_port: ""
+        app_name: "AppName"
+        app_root: "/opt"
+        app_ports:
+          "8031":
         python_image: python:3.8.0-alpine
-        app_maintainer: xxx.yyy@zzz.com
+        app_maintainer: "xxx.yyy@zzz.com"
+        app_file: app.py
       roles:
          - role: ViacheslavIsaev.containeraize-py-app
 
