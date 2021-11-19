@@ -23,7 +23,10 @@ Role Variables
 * python_image   - base python image to host application
 * app_maintainer - maintainer of the application
 * app_image_name - don't change it unless would like to specify specific image tag.
-* app_file       - python file which contains application and is used as startup file
+* app_file         - python file which contains application and is used as startup file. Default: main.py
+* src_app_root     - Source of the application, from where to copy it. Default: ./app
+* src_requirements - Path to requirements file. Default: ./requirements.txt
+* src_dockerfile   - Name of the Dockerfile tempalte. Default file is provided. Default: Dockerfile.j2
 
 Dependencies
 ------------
@@ -38,7 +41,7 @@ Example Playbook
         app_name: "AppName"
         app_root: "/opt"
         app_ports:
-          "8031":
+          - "8031"
         python_image: python:3.8.0-alpine
         app_maintainer: "xxx.yyy@zzz.com"
         app_file: app.py

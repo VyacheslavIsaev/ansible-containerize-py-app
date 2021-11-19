@@ -15,5 +15,5 @@ COPY app /app/
 EXPOSE {{item}}
 {% endfor %}
 
-ENTRYPOINT [ "python" ]
+ENTRYPOINT [ "{{python}}" ]
 CMD [ "{{app_file}}" ]

@@ -2,17 +2,17 @@
 # tasks file for containerize-py-app
 - name: Copying application
   copy:
-    src: ./app
+    src:  "{{src_app_root}}"
     dest: "{{app_path}}/"
 
 - name: Copying Dockerfile
   template:
-    src: Dockerfile.j2
+    src:  "{{src_dockerfile}}"
     dest: "{{app_path}}/Dockerfile"
 
 - name: Copying requirements
   copy:
-    src: ./requirements.txt
+    src:  "{{src_requirements}}"
     dest: "{{app_path}}/"
 
 - name: Building docker

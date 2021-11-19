@@ -4,7 +4,12 @@ app_root: "/opt"
 app_name: AppName
 app_ports: []
 python_image: python:3.8.0-alpine
+python: python
 app_maintainer: ""
 app_path: "{{app_root}}/{{app_name}}"
 app_image_name: "{{app_name}}:latest"
 app_host: "{{ ansible_default_ipv4.address }}"
+app_file: "main.py"
+src_app_root: "./app"
+src_requirements: "./requirements.txt"
+src_dockerfile: "Dockerfile.j2"
