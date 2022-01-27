@@ -13,7 +13,7 @@
 - name: Copying requirements
   copy:
     src:  "{{src_requirements}}"
-    dest: "{{app_path}}/"
+    dest: "{{app_path}}/requirements.txt"
 
 - name: Building docker
   command: "docker build -t {{app_image_name}} ."
